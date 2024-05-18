@@ -20,7 +20,7 @@ FROM nginxinc/nginx-unprivileged:1.26
 
 ENV KAFKA_CONNECT_CLUSTERS=http://localhost:8083/
 
-RUN chmod 777 /etc/nginx/conf.d/default.conf
+RUN chmod 777 /etc/nginx/conf.d/default.conf && chmod 777 /usr/share/nginx/html/config
 COPY --from=builder /app/dist /usr/share/nginx/html
 COPY config.json /app/config.json
 COPY deployment/image/create-dbzui-config.sh /docker-entrypoint.d/
