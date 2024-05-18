@@ -16,7 +16,7 @@ ENV NODE_ENV=production
 RUN npm run build
 
 
-FROM nginx:1.25.3-alpine
+FROM nginxinc/nginx-unprivileged:1.26
 
 ENV KAFKA_CONNECT_CLUSTERS=http://localhost:8083/
 
